@@ -1,17 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const authController = require('../controllers/authController');
+const auth = require('../middleware/auth');
 
-// 认证相关路由
-router.post('/register', (req, res) => {
-  res.json({ message: '用户注册' });
-});
+// 公开路由
+router.post('/register', authController.register);
+router.post('/login', authController.login);
 
-router.post('/login', (req, res) => {
-  res.json({ message: '用户登录' });
-});
-
-router.post('/logout', (req, res) => {
-  res.json({ message: '用户登出' });
-});
+// 受保护的路由
+router.get('/me', auth.authenticateToken, authController.getCurrentUser);
+router.put('/profile', auth.authenticateToken, authController.updateProfile);
 
 module.exports = router;
