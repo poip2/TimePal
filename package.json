@@ -1,0 +1,28 @@
+{
+  "name": "timepal",
+  "version": "1.0.0",
+  "description": "智能时间管理助手",
+  "main": "index.js",
+  "scripts": {
+    "dev": "echo \"开发模式启动中...\"",
+    "build": "echo \"构建项目中...\"",
+    "test": "echo \"运行测试中...\"",
+    "start": "echo \"启动应用中...\""
+  },
+  "keywords": [
+    "时间管理",
+    "productivity",
+    "ai",
+    "assistant"
+  ],
+  "author": "TimePal Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}
