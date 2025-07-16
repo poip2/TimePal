@@ -11,9 +11,10 @@ const registerSchema = Joi.object({
 
 // 登录验证schema
 const loginSchema = Joi.object({
-  email: Joi.string().email().required(),
+  email: Joi.string().email(),
+  username: Joi.string().alphanum().min(3).max(50),
   password: Joi.string().required()
-});
+}).or('email', 'username');
 
 // 生成JWT令牌
 const generateToken = (userId) => {
@@ -99,14 +100,20 @@ const login = async (req, res) => {
       });
     }
 
-    const { email, password } = req.body;
+    const { email, username, password } = req.body;
 
-    // 查找用户
-    const user = await User.findOne({ where: { email } });
+    // 查找用户（支持邮箱或用户名登录）
+    let user;
+    if (email) {
+      user = await User.findOne({ where: { email } });
+    } else if (username) {
+      user = await User.findOne({ where: { username } });
+    }
+
     if (!user) {
       return res.status(401).json({
         success: false,
-        message: '邮箱或密码错误'
+        message: '用户名/邮箱或密码错误'
       });
     }
 
