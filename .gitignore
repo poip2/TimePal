@@ -69,3 +69,5 @@ target/
 *.bak
 *.tmp
 *.temp
+.roomodes
+.gitignore

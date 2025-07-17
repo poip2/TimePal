@@ -1,82 +1,20 @@
 const request = require('supertest');
 const app = require('../../src/server');
 const { User } = require('../../src/models');
-const { Sequelize } = require('sequelize');
+const sequelize = require('../../src/config/database');
 
-// 使用SQLite内存数据库进行测试
-const sequelize = new Sequelize('sqlite::memory:', {
-  logging: false,
-  define: {
-    timestamps: true,
-    underscored: true,
-    freezeTableName: true,
-  }
+// 测试数据库配置
+beforeAll(async () => {
+  await sequelize.sync({ force: true });
 });
 
-// 重新初始化模型
-User.init({
-  username: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false,
-    validate: {
-      len: [3, 50]
-    }
-  },
-  email: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false,
-    validate: {
-      isEmail: true
-    }
-  },
-  passwordHash: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  avatarUrl: {
-    type: Sequelize.STRING,
-    allowNull: true,
-    validate: {
-      isUrl: true
-    }
-  },
-  level: {
-    type: Sequelize.INTEGER,
-    defaultValue: 1
-  },
-  experience: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0
-  },
-  coins: {
-    type: Sequelize.INTEGER,
-    defaultValue: 0
-  },
-  isActive: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: true
-  }
-}, {
-  sequelize,
-  modelName: 'User',
-  tableName: 'users',
-  hooks: {
-    beforeCreate: async (user) => {
-      if (user.passwordHash && !user.passwordHash.startsWith('$2')) {
-        const bcrypt = require('bcryptjs');
-        user.passwordHash = await bcrypt.hash(user.passwordHash, 10);
-      }
-    }
-  }
+afterAll(async () => {
+  await sequelize.close();
 });
 
-// 添加密码验证方法
-User.prototype.validatePassword = async function (password) {
-  const bcrypt = require('bcryptjs');
-  return await bcrypt.compare(password, this.passwordHash);
-};
+beforeEach(async () => {
+  await User.destroy({ where: {} });
+});
 
 // 测试数据库配置
 beforeAll(async () => {
