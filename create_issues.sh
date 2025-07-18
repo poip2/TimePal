@@ -58,7 +58,7 @@ gh issue create --title "🔐 用户认证系统 - 后端API" --body "## 📋 �
 3天
 
 ## 🏷️ 标签
-backend, auth, api, security" --label "backend,auth,api,security"
+backend, auth, api, security"
 
 # 创建用户认证界面 - 前端
 gh issue create --title "🖥️ 用户认证界面 - 前端" --body "## 📋 任务描述
@@ -89,7 +89,7 @@ gh issue create --title "🖥️ 用户认证界面 - 前端" --body "## 📋 �
 3天
 
 ## 🏷️ 标签
-frontend, auth, ui, mobile" --label "frontend,auth,ui,mobile"
+frontend, auth, ui, mobile"
 
 # 创建扩展用户系统 - 游戏化属性
 gh issue create --title "👤 扩展用户系统 - 游戏化属性" --body "## 📋 任务描述
@@ -130,7 +130,7 @@ ALTER TABLE users ADD COLUMN class VARCHAR(20) DEFAULT 'warrior';
 3天
 
 ## 🏷️ 标签
-backend, user-system, gamification, database" --label "backend,user-system,gamification,database"
+backend, user-system, gamification, database"
 
 # 创建任务系统 - 习惯管理
 gh issue create --title "🎯 任务系统 - 习惯管理" --body "## 📋 任务描述
@@ -233,7 +233,7 @@ CREATE TABLE dailies (
 4天
 
 ## 🏷️ 标签
-backend, dailies, tasks, scheduling" --label "backend,dailies,tasks,scheduling"
+backend, dailies, tasks, scheduling"
 
 # 创建任务系统 - 待办事项
 gh issue create --title "✅ 任务系统 - 待办事项" --body "## 📋 任务描述
@@ -279,7 +279,7 @@ CREATE TABLE todos (
 3天
 
 ## 🏷️ 标签
-backend, todos, tasks, checklist" --label "backend,todos,tasks,checklist"
+backend, todos, tasks, checklist"
 
 # 创建物品系统 - 装备管理
 gh issue create --title "🗡️ 物品系统 - 装备管理" --body "## 📋 任务描述
@@ -337,7 +337,7 @@ CREATE TABLE user_equipment (
 4天
 
 ## 🏷️ 标签
-backend, equipment, items, shop" --label "backend,equipment,items,shop"
+backend, equipment, items, shop"
 
 # 创建物品系统 - 宠物系统
 gh issue create --title "🐾 物品系统 - 宠物系统" --body "## 📋 任务描述
@@ -391,7 +391,7 @@ CREATE TABLE user_pets (
 4天
 
 ## 🏷️ 标签
-backend, pets, collection, gamification" --label "backend,pets,collection,gamification"
+backend, pets, collection, gamification"
 
 # 创建物品系统 - 坐骑系统
 gh issue create --title "🐎 物品系统 - 坐骑系统" --body "## 📋 任务描述
