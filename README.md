@@ -15,18 +15,17 @@ TimePal 是一个基于 AI 的时间管理工具，帮助用户更好地规划�
 
 ## 技术栈
 
-- 前端：待定
-- 后端：待定
-- 数据库：待定
+- 前端：cd /home/poip/RooCode/TimePal/frontend && flutter run -d web-server --web-port=3001
+
+- 后端：cd /home/poip/RooCode/TimePal/backend && npm run dev
+
+- 数据库：posrgresql
+
 
 ## 开发状态
 
 项目开发中...
 
-## 贡献指南
-
-欢迎提交 Issue 和 Pull Request！
-
 ## 许可证
 
-MIT License
+GPL-v3 License

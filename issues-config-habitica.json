@@ -1,0 +1,221 @@
+[
+  {
+    "title": "🏗️ 项目初始化与环境搭建",
+    "body": "## 📋 任务描述\n完成TimePal项目的基础环境搭建和项目初始化\n\n## ✅ 检查清单\n- [x] 安装Flutter开发环境（3.0+版本）\n- [x] 配置Node.js开发环境\n- [x] 搭建PostgreSQL数据库\n- [x] 创建Flutter项目结构\n- [x] 创建Express.js后端项目\n- [x] 配置项目依赖\n- [x] 设置代码规范和Git工作流\n- [x] 配置开发工具（VSCode、Postman等）\n\n## 📁 相关文件\n- docs/Implementation.md 第一阶段任务\n- docs/ProjectStructure.md 项目结构规范\n\n## ⏱️ 预计时间\n2-3天\n\n## 🏷️ 标签\nsetup, infrastructure, high-priority",
+    "labels": [
+      "setup",
+      "infrastructure",
+      "high-priority"
+    ]
+  },
+  {
+    "title": "🔐 用户认证系统 - 后端API",
+    "body": "## 📋 任务描述\n实现完整的用户认证系统后端API\n\n## ✅ 检查清单\n- [x] 设计用户表结构（users表）\n- [x] 实现用户注册API (POST /api/auth/register)\n- [x] 实现用户登录API (POST /api/auth/login)\n- [x] JWT令牌生成与验证\n- [x] 密码加密存储（bcryptjs）\n- [x] 输入验证和错误处理\n- [x] API文档编写\n- [x] 单元测试编写\n\n## 🔧 技术规范\n- 使用JWT进行身份验证\n- 密码加密：bcryptjs\n- 输入验证：Joi\n- 返回统一格式的响应\n\n## 📁 相关文件\n- backend/src/controllers/authController.js\n- backend/src/models/User.js\n- backend/src/routes/auth.js\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, auth, api, security",
+    "labels": [
+      "backend",
+      "auth",
+      "api",
+      "security"
+    ]
+  },
+  {
+    "title": "🖥️ 用户认证界面 - 前端",
+    "body": "## 📋 任务描述\n实现用户认证相关的前端界面\n\n## ✅ 检查清单\n- [x] 创建登录页面 (LoginPage)\n- [x] 创建注册页面 (RegisterPage)\n- [x] 实现表单验证（前端）\n- [x] 集成后端认证API\n- [x] 实现状态管理（Provider）\n- [x] 添加加载状态和错误处理\n- [x] 实现自动登录（记住我功能）\n- [x] 响应式设计适配\n\n## 🎨 UI/UX要求\n- 遵循设计系统规范（颜色、字体、间距）\n- 支持深色/浅色主题切换\n- 表单验证友好的错误提示\n- 加载动画和状态反馈\n\n## 📁 相关文件\n- frontend/lib/presentation/pages/auth/login_page.dart\n- frontend/lib/presentation/pages/auth/register_page.dart\n- frontend/lib/data/providers/auth_provider.dart\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nfrontend, auth, ui, mobile",
+    "labels": [
+      "frontend",
+      "auth",
+      "ui",
+      "mobile"
+    ]
+  },
+  {
+    "title": "👤 扩展用户系统 - 游戏化属性",
+    "body": "## 📋 任务描述\n实现Habitica风格的用户游戏化属性系统\n\n## ✅ 检查清单\n- [ ] 设计用户游戏化属性表结构\n- [ ] 实现等级系统（level, experience, experience_to_next）\n- [ ] 实现生命值系统（health, max_health）\n- [ ] 实现魔法值系统（mana, max_mana）\n- [ ] 实现货币系统（coins, gold）\n- [ ] 实现职业系统（class, class_points）\n- [ ] 实现四维属性（strength, intelligence, constitution, perception）\n- [ ] 实现用户统计字段（total_tasks_completed, streak_highest, login_streak）\n\n## 📊 数据模型\n```sql\n-- 用户游戏化属性扩展\nALTER TABLE users ADD COLUMN level INTEGER DEFAULT 1;\nALTER TABLE users ADD COLUMN experience INTEGER DEFAULT 0;\nALTER TABLE users ADD COLUMN experience_to_next INTEGER DEFAULT 100;\nALTER TABLE users ADD COLUMN health INTEGER DEFAULT 50;\nALTER TABLE users ADD COLUMN max_health INTEGER DEFAULT 50;\nALTER TABLE users ADD COLUMN mana INTEGER DEFAULT 10;\nALTER TABLE users ADD COLUMN max_mana INTEGER DEFAULT 10;\nALTER TABLE users ADD COLUMN coins INTEGER DEFAULT 0;\nALTER TABLE users ADD COLUMN gold INTEGER DEFAULT 0;\nALTER TABLE users ADD COLUMN class VARCHAR(20) DEFAULT 'warrior';\n```\n\n## 🔗 API端点\n- `GET /api/users/stats` - 获取用户游戏化属性\n- `PUT /api/users/stats` - 更新用户属性\n- `POST /api/users/level-up` - 处理升级逻辑\n- `GET /api/users/class` - 获取职业信息\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, user-system, gamification, database",
+    "labels": [
+      "backend",
+      "user-system",
+      "gamification",
+      "database"
+    ]
+  },
+  {
+    "title": "🎯 任务系统 - 习惯管理",
+    "body": "## 📋 任务描述\n实现完整的习惯管理系统（Habits）\n\n## ✅ 检查清单\n- [ ] 设计习惯表结构（habits）\n- [ ] 实现习惯CRUD操作\n- [ ] 实现习惯评分系统（正向/负向）\n- [ ] 实现难度系统（trivial, easy, medium, hard）\n- [ ] 实现计数器功能（counter_up, counter_down）\n- [ ] 实现习惯排序和分类\n- [ ] 实现习惯归档功能\n- [ ] 实现习惯历史记录\n\n## 📊 数据模型\n```sql\nCREATE TABLE habits (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    title VARCHAR(255) NOT NULL,\n    notes TEXT,\n    type VARCHAR(10) NOT NULL, -- good, bad\n    difficulty VARCHAR(10) DEFAULT 'easy',\n    up_count INTEGER DEFAULT 0,\n    down_count INTEGER DEFAULT 0,\n    counter_up INTEGER DEFAULT 0,\n    counter_down INTEGER DEFAULT 0,\n    position INTEGER DEFAULT 0,\n    is_positive BOOLEAN DEFAULT true,\n    is_negative BOOLEAN DEFAULT true,\n    is_archived BOOLEAN DEFAULT false,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n```\n\n## 🔗 API端点\n- `GET /api/habits` - 获取所有习惯\n- `POST /api/habits` - 创建新习惯\n- `GET /api/habits/:id` - 获取单个习惯\n- `PUT /api/habits/:id` - 更新习惯\n- `DELETE /api/habits/:id` - 删除习惯\n- `POST /api/habits/:id/score` - 评分习惯（up/down）\n\n## ⏱️ 预计时间\n4天\n\n## 🏷️ 标签\nbackend, habits, tasks, crud",
+    "labels": [
+      "backend",
+      "habits",
+      "tasks",
+      "crud"
+    ]
+  },
+  {
+    "title": "📅 任务系统 - 每日任务",
+    "body": "## 📋 任务描述\n实现每日任务管理系统（Dailies）\n\n## ✅ 检查清单\n- [ ] 设计每日任务表结构（dailies）\n- [ ] 实现复杂的重复规则系统\n- [ ] 实现连续完成奖励（streak系统）\n- [ ] 实现提醒时间设置\n- [ ] 实现任务完成状态跟踪\n- [ ] 实现最长连续记录\n- [ ] 实现任务归档和激活\n- [ ] 实现每日重置逻辑\n\n## 📊 数据模型\n```sql\nCREATE TABLE dailies (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    title VARCHAR(255) NOT NULL,\n    notes TEXT,\n    difficulty VARCHAR(10) DEFAULT 'easy',\n    repeat_type VARCHAR(10) DEFAULT 'weekly',\n    repeat_days JSONB DEFAULT '[]',\n    start_date DATE,\n    every_x INTEGER DEFAULT 1,\n    streak INTEGER DEFAULT 0,\n    longest_streak INTEGER DEFAULT 0,\n    is_completed BOOLEAN DEFAULT false,\n    last_completed_date DATE,\n    reminder_time TIME,\n    position INTEGER DEFAULT 0,\n    is_archived BOOLEAN DEFAULT false,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n```\n\n## 🔗 API端点\n- `GET /api/dailies` - 获取所有每日任务\n- `POST /api/dailies` - 创建每日任务\n- `GET /api/dailies/:id` - 获取单个每日任务\n- `PUT /api/dailies/:id` - 更新每日任务\n- `DELETE /api/dailies/:id` - 删除每日任务\n- `POST /api/dailies/:id/complete` - 完成每日任务\n- `POST /api/dailies/:id/uncomplete` - 取消完成\n\n## ⏱️ 预计时间\n4天\n\n## 🏷️ 标签\nbackend, dailies, tasks, scheduling",
+    "labels": [
+      "backend",
+      "dailies",
+      "tasks",
+      "scheduling"
+    ]
+  },
+  {
+    "title": "✅ 任务系统 - 待办事项",
+    "body": "## 📋 任务描述\n实现待办事项管理系统（Todos）\n\n## ✅ 检查清单\n- [ ] 设计待办事项表结构（todos）\n- [ ] 实现检查清单功能（checklist）\n- [ ] 实现截止日期管理\n- [ ] 实现任务完成状态跟踪\n- [ ] 实现任务排序和优先级\n- [ ] 实现任务历史记录\n- [ ] 实现任务删除和恢复\n- [ ] 实现任务统计功能\n\n## 📊 数据模型\n```sql\nCREATE TABLE todos (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    title VARCHAR(255) NOT NULL,\n    notes TEXT,\n    difficulty VARCHAR(10) DEFAULT 'easy',\n    due_date DATE,\n    date_completed TIMESTAMP,\n    checklist JSONB DEFAULT '[]',\n    is_completed BOOLEAN DEFAULT false,\n    position INTEGER DEFAULT 0,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n```\n\n## 🔗 API端点\n- `GET /api/todos` - 获取所有待办事项\n- `POST /api/todos` - 创建待办事项\n- `GET /api/todos/:id` - 获取单个待办事项\n- `PUT /api/todos/:id` - 更新待办事项\n- `DELETE /api/todos/:id` - 删除待办事项\n- `POST /api/todos/:id/complete` - 完成待办事项\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, todos, tasks, checklist",
+    "labels": [
+      "backend",
+      "todos",
+      "tasks",
+      "checklist"
+    ]
+  },
+  {
+    "title": "🗡️ 物品系统 - 装备管理",
+    "body": "## 📋 任务描述\n实现完整的装备系统，包括武器、防具等\n\n## ✅ 检查清单\n- [ ] 设计装备表结构（equipment）\n- [ ] 实现装备属性加成系统\n- [ ] 实现装备购买和解锁\n- [ ] 实现装备穿戴和卸下\n- [ ] 实现职业限制和等级要求\n- [ ] 实现用户装备管理\n- [ ] 实现装备商店界面\n- [ ] 实现装备分类和筛选\n\n## 📊 数据模型\n```sql\nCREATE TABLE equipment (\n    id SERIAL PRIMARY KEY,\n    key VARCHAR(50) UNIQUE NOT NULL,\n    name VARCHAR(100) NOT NULL,\n    type VARCHAR(20) NOT NULL,\n    class VARCHAR(20),\n    strength_bonus INTEGER DEFAULT 0,\n    intelligence_bonus INTEGER DEFAULT 0,\n    constitution_bonus INTEGER DEFAULT 0,\n    perception_bonus INTEGER DEFAULT 0,\n    gold_cost INTEGER DEFAULT 0,\n    gem_cost INTEGER DEFAULT 0,\n    image_url VARCHAR(255),\n    level_required INTEGER DEFAULT 1,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE user_equipment (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    equipment_id INTEGER REFERENCES equipment(id) ON DELETE CASCADE,\n    is_owned BOOLEAN DEFAULT false,\n    is_equipped BOOLEAN DEFAULT false,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(user_id, equipment_id)\n);\n```\n\n## 🔗 API端点\n- `GET /api/equipment` - 获取所有装备\n- `GET /api/equipment/owned` - 获取已拥有装备\n- `POST /api/equipment/:id/buy` - 购买装备\n- `POST /api/equipment/:id/equip` - 装备物品\n- `POST /api/equipment/:id/unequip` - 卸下物品\n\n## ⏱️ 预计时间\n4天\n\n## 🏷️ 标签\nbackend, equipment, items, shop",
+    "labels": [
+      "backend",
+      "equipment",
+      "items",
+      "shop"
+    ]
+  },
+  {
+    "title": "🐾 物品系统 - 宠物系统",
+    "body": "## 📋 任务描述\n实现宠物收集、孵化和升级系统\n\n## ✅ 检查清单\n- [ ] 设计宠物表结构（pets）\n- [ ] 实现宠物蛋和药水的合成系统\n- [ ] 实现宠物孵化逻辑\n- [ ] 实现宠物升级系统\n- [ ] 实现宠物装备和卸下\n- [ ] 实现宠物稀有度系统\n- [ ] 实现用户宠物收藏\n- [ ] 实现宠物图鉴功能\n\n## 📊 数据模型\n```sql\nCREATE TABLE pets (\n    id SERIAL PRIMARY KEY,\n    key VARCHAR(50) UNIQUE NOT NULL,\n    name VARCHAR(100) NOT NULL,\n    type VARCHAR(20) NOT NULL,\n    egg_type VARCHAR(50),\n    potion_type VARCHAR(50),\n    image_url VARCHAR(255),\n    rarity VARCHAR(10) DEFAULT 'common',\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE user_pets (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    pet_id INTEGER REFERENCES pets(id) ON DELETE CASCADE,\n    is_owned BOOLEAN DEFAULT false,\n    is_active BOOLEAN DEFAULT false,\n    level INTEGER DEFAULT 1,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(user_id, pet_id)\n);\n```\n\n## 🔗 API端点\n- `GET /api/pets` - 获取所有宠物\n- `GET /api/pets/owned` - 获取已拥有宠物\n- `POST /api/pets/:id/hatch` - 孵化宠物\n- `POST /api/pets/:id/feed` - 喂养宠物\n- `POST /api/pets/:id/equip` - 装备宠物\n\n## ⏱️ 预计时间\n4天\n\n## 🏷️ 标签\nbackend, pets, collection, gamification",
+    "labels": [
+      "backend",
+      "pets",
+      "collection",
+      "gamification"
+    ]
+  },
+  {
+    "title": "🐎 物品系统 - 坐骑系统",
+    "body": "## 📋 任务描述\n实现坐骑收集和装备系统\n\n## ✅ 检查清单\n- [ ] 设计坐骑表结构（mounts）\n- [ ] 实现坐骑驯服系统\n- [ ] 实现坐骑装备和卸下\n- [ ] 实现坐骑稀有度系统\n- [ ] 实现坐骑图鉴功能\n- [ ] 实现坐骑与宠物的关联\n- [ ] 实现用户坐骑收藏\n- [ ] 实现坐骑展示界面\n\n## 📊 数据模型\n```sql\nCREATE TABLE mounts (\n    id SERIAL PRIMARY KEY,\n    key VARCHAR(50) UNIQUE NOT NULL,\n    name VARCHAR(100) NOT NULL,\n    type VARCHAR(20) NOT NULL,\n    image_url VARCHAR(255),\n    rarity VARCHAR(10) DEFAULT 'common',\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE user_mounts (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    mount_id INTEGER REFERENCES mounts(id) ON DELETE CASCADE,\n    is_owned BOOLEAN DEFAULT false,\n    is_active BOOLEAN DEFAULT false,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(user_id, mount_id)\n);\n```\n\n## 🔗 API端点\n- `GET /api/mounts` - 获取所有坐骑\n- `GET /api/mounts/owned` - 获取已拥有坐骑\n- `POST /api/mounts/:id/tame` - 驯服坐骑\n- `POST /api/mounts/:id/equip` - 装备坐骑\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, mounts, collection, gamification",
+    "labels": [
+      "backend",
+      "mounts",
+      "collection",
+      "gamification"
+    ]
+  },
+  {
+    "title": "👥 社交系统 - 队伍管理",
+    "body": "## 📋 任务描述\n实现队伍创建、加入和管理系统\n\n## ✅ 检查清单\n- [ ] 设计队伍表结构（parties）\n- [ ] 实现队伍创建和删除\n- [ ] 实现队伍成员管理\n- [ ] 实现队伍权限系统（队长、管理员、成员）\n- [ ] 实现队伍邀请和加入机制\n- [ ] 实现队伍聊天功能\n- [ ] 实现队伍副本系统\n- [ ] 实现队伍排行榜\n\n## 📊 数据模型\n```sql\nCREATE TABLE parties (\n    id SERIAL PRIMARY KEY,\n    name VARCHAR(100) NOT NULL,\n    description TEXT,\n    leader_id INTEGER REFERENCES users(id),\n    privacy VARCHAR(10) DEFAULT 'private',\n    max_members INTEGER DEFAULT 30,\n    image_url VARCHAR(255),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE party_members (\n    id SERIAL PRIMARY KEY,\n    party_id INTEGER REFERENCES parties(id) ON DELETE CASCADE,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    role VARCHAR(20) DEFAULT 'member',\n    joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(party_id, user_id)\n);\n```\n\n## 🔗 API端点\n- `GET /api/parties` - 获取用户队伍\n- `POST /api/parties` - 创建队伍\n- `GET /api/parties/:id` - 获取队伍详情\n- `PUT /api/parties/:id` - 更新队伍\n- `POST /api/parties/:id/join` - 加入队伍\n- `POST /api/parties/:id/leave` - 离开队伍\n\n## ⏱️ 预计时间\n4天\n\n## 🏷️ 标签\nbackend, parties, social, teams",
+    "labels": [
+      "backend",
+      "parties",
+      "social",
+      "teams"
+    ]
+  },
+  {
+    "title": "🤝 社交系统 - 好友系统",
+    "body": "## 📋 任务描述\n实现好友添加、管理和互动系统\n\n## ✅ 检查清单\n- [ ] 设计好友关系表结构（friends）\n- [ ] 实现好友请求发送和接受\n- [ ] 实现好友列表管理\n- [ ] 实现好友状态查看\n- [ ] 实现好友排行榜\n- [ ] 实现好友挑战功能\n- [ ] 实现好友消息系统\n- [ ] 实现好友推荐算法\n\n## 📊 数据模型\n```sql\nCREATE TABLE friends (\n    id SERIAL PRIMARY KEY,\n    requester_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    addressee_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    status VARCHAR(10) DEFAULT 'pending',\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(requester_id, addressee_id)\n);\n```\n\n## 🔗 API端点\n- `GET /api/friends` - 获取好友列表\n- `POST /api/friends/:id/request` - 发送好友请求\n- `POST /api/friends/:id/accept` - 接受好友请求\n- `DELETE /api/friends/:id` - 删除好友\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, friends, social, relationships",
+    "labels": [
+      "backend",
+      "friends",
+      "social",
+      "relationships"
+    ]
+  },
+  {
+    "title": "💬 社交系统 - 消息系统",
+    "body": "## 📋 任务描述\n实现实时消息通信系统\n\n## ✅ 检查清单\n- [ ] 设计消息表结构（messages）\n- [ ] 实现私信功能\n- [ ] 实现队伍消息\n- [ ] 实现系统通知\n- [ ] 实现消息已读状态\n- [ ] 实现消息历史记录\n- [ ] 实现消息推送通知\n- [ ] 实现消息防垃圾机制\n\n## 📊 数据模型\n```sql\nCREATE TABLE messages (\n    id SERIAL PRIMARY KEY,\n    sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    recipient_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    content TEXT NOT NULL,\n    is_read BOOLEAN DEFAULT false,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n```\n\n## 🔗 API端点\n- `GET /api/messages` - 获取消息\n- `POST /api/messages` - 发送消息\n- `PUT /api/messages/:id/read` - 标记已读\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, messages, chat, notifications",
+    "labels": [
+      "backend",
+      "messages",
+      "chat",
+      "notifications"
+    ]
+  },
+  {
+    "title": "🏆 游戏化系统 - 技能系统",
+    "body": "## 📋 任务描述\n实现基于职业的技能系统\n\n## ✅ 检查清单\n- [ ] 设计技能表结构（skills）\n- [ ] 实现四种职业（战士、法师、盗贼、医者）\n- [ ] 实现技能解锁机制\n- [ ] 实现魔法值消耗系统\n- [ ] 实现技能效果系统\n- [ ] 实现技能冷却时间\n- [ ] 实现用户技能管理\n- [ ] 实现技能施放动画\n\n## 📊 数据模型\n```sql\nCREATE TABLE skills (\n    id SERIAL PRIMARY KEY,\n    key VARCHAR(50) UNIQUE NOT NULL,\n    name VARCHAR(100) NOT NULL,\n    class VARCHAR(20) NOT NULL,\n    mana_cost INTEGER DEFAULT 0,\n    target VARCHAR(20) DEFAULT 'self',\n    effect_type VARCHAR(20),\n    effect_value INTEGER,\n    level_required INTEGER DEFAULT 1,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE user_skills (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    skill_id INTEGER REFERENCES skills(id) ON DELETE CASCADE,\n    is_unlocked BOOLEAN DEFAULT false,\n    last_used TIMESTAMP,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(user_id, skill_id)\n);\n```\n\n## 🔗 API端点\n- `GET /api/skills` - 获取用户技能\n- `POST /api/skills/:id/cast` - 施放技能\n- `GET /api/buffs` - 获取当前buff\n\n## ⏱️ 预计时间\n4天\n\n## 🏷️ 标签\nbackend, skills, classes, magic",
+    "labels": [
+      "backend",
+      "skills",
+      "classes",
+      "magic"
+    ]
+  },
+  {
+    "title": "⚔️ 游戏化系统 - 副本系统",
+    "body": "## 📋 任务描述\n实现副本挑战和进度系统\n\n## ✅ 检查清单\n- [ ] 设计副本表结构（quests）\n- [ ] 实现副本创建和配置\n- [ ] 实现副本进度跟踪\n- [ ] 实现副本难度系统\n- [ ] 实现副本奖励机制\n- [ ] 实现用户副本进度\n- [ ] 实现队伍副本系统\n- [ ] 实现副本完成记录\n\n## 📊 数据模型\n```sql\nCREATE TABLE quests (\n    id SERIAL PRIMARY KEY,\n    key VARCHAR(50) UNIQUE NOT NULL,\n    name VARCHAR(100) NOT NULL,\n    description TEXT,\n    difficulty VARCHAR(10) DEFAULT 'easy',\n    level_required INTEGER DEFAULT 1,\n    experience_reward INTEGER DEFAULT 0,\n    gold_reward INTEGER DEFAULT 0,\n    item_rewards JSONB DEFAULT '[]',\n    max_progress INTEGER DEFAULT 100,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE user_quests (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    quest_id INTEGER REFERENCES quests(id) ON DELETE CASCADE,\n    progress INTEGER DEFAULT 0,\n    status VARCHAR(10) DEFAULT 'locked',\n    completed_at TIMESTAMP,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(user_id, quest_id)\n);\n```\n\n## 🔗 API端点\n- `GET /api/quests` - 获取可用副本\n- `POST /api/quests/:id/start` - 开始副本\n- `GET /api/quests/progress` - 获取副本进度\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, quests, challenges, progression",
+    "labels": [
+      "backend",
+      "quests",
+      "challenges",
+      "progression"
+    ]
+  },
+  {
+    "title": "🎖️ 游戏化系统 - 成就系统",
+    "body": "## 📋 任务描述\n实现多样化的成就解锁系统\n\n## ✅ 检查清单\n- [ ] 设计成就表结构（achievements）\n- [ ] 实现成就分类系统（基础、季节、特殊）\n- [ ] 实现成就进度跟踪\n- [ ] 实现成就解锁通知\n- [ ] 实现成就奖励系统\n- [ ] 实现用户成就展示\n- [ ] 实现成就分享功能\n- [ ] 实现隐藏成就系统\n\n## 📊 数据模型\n```sql\nCREATE TABLE achievements (\n    id SERIAL PRIMARY KEY,\n    key VARCHAR(50) UNIQUE NOT NULL,\n    name VARCHAR(100) NOT NULL,\n    description TEXT,\n    category VARCHAR(20) NOT NULL,\n    experience_reward INTEGER DEFAULT 0,\n    gold_reward INTEGER DEFAULT 0,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE user_achievements (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    achievement_id INTEGER REFERENCES achievements(id) ON DELETE CASCADE,\n    progress INTEGER DEFAULT 0,\n    max_progress INTEGER DEFAULT 1,\n    is_achieved BOOLEAN DEFAULT false,\n    achieved_at TIMESTAMP,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(user_id, achievement_id)\n);\n```\n\n## 🔗 API端点\n- `GET /api/achievements` - 获取成就列表\n- `GET /api/achievements/unlocked` - 获取已解锁成就\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, achievements, gamification, rewards",
+    "labels": [
+      "backend",
+      "achievements",
+      "gamification",
+      "rewards"
+    ]
+  },
+  {
+    "title": "📊 统计系统 - 用户数据分析",
+    "body": "## 📋 任务描述\n实现全面的用户行为数据分析系统\n\n## ✅ 检查清单\n- [ ] 设计用户统计表结构（user_stats）\n- [ ] 实现任务完成统计\n- [ ] 实现完美日统计\n- [ ] 实现伤害统计系统\n- [ ] 实现物品收集统计\n- [ ] 实现社交互动统计\n- [ ] 实现在线时间统计\n- [ ] 实现统计更新机制\n\n## 📊 数据模型\n```sql\nCREATE TABLE user_stats (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    habits_completed INTEGER DEFAULT 0,\n    dailies_completed INTEGER DEFAULT 0,\n    todos_completed INTEGER DEFAULT 0,\n    perfect_days INTEGER DEFAULT 0,\n    current_perfect_day_streak INTEGER DEFAULT 0,\n    longest_perfect_day_streak INTEGER DEFAULT 0,\n    total_damage_dealt INTEGER DEFAULT 0,\n    total_damage_received INTEGER DEFAULT 0,\n    total_pets_found INTEGER DEFAULT 0,\n    total_mounts_tamed INTEGER DEFAULT 0,\n    total_equipment_owned INTEGER DEFAULT 0,\n    total_messages_sent INTEGER DEFAULT 0,\n    total_parties_joined INTEGER DEFAULT 0,\n    total_challenges_won INTEGER DEFAULT 0,\n    total_playtime_minutes INTEGER DEFAULT 0,\n    last_activity_at TIMESTAMP,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n```\n\n## 🔗 API端点\n- `GET /api/stats/overview` - 获取统计概览\n- `GET /api/stats/detailed` - 获取详细统计\n- `GET /api/stats/daily` - 获取每日统计\n- `GET /api/stats/weekly` - 获取每周统计\n- `GET /api/stats/monthly` - 获取每月统计\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, statistics, analytics, data",
+    "labels": [
+      "backend",
+      "statistics",
+      "analytics",
+      "data"
+    ]
+  },
+  {
+    "title": "📈 统计系统 - 图表和可视化",
+    "body": "## 📋 任务描述\n实现数据可视化图表和报告系统\n\n## ✅ 检查清单\n- [ ] 设计每日统计表结构（daily_stats）\n- [ ] 实现打卡日历热力图\n- [ ] 实现任务完成趋势图\n- [ ] 实现属性成长曲线\n- [ ] 实现社交互动图表\n- [ ] 实现成就进度图表\n- [ ] 实现自定义时间范围查询\n- [ ] 实现数据导出功能\n\n## 📊 数据模型\n```sql\nCREATE TABLE daily_stats (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    date DATE NOT NULL,\n    habits_completed INTEGER DEFAULT 0,\n    dailies_completed INTEGER DEFAULT 0,\n    todos_completed INTEGER DEFAULT 0,\n    experience_gained INTEGER DEFAULT 0,\n    gold_gained INTEGER DEFAULT 0,\n    mana_gained INTEGER DEFAULT 0,\n    damage_dealt INTEGER DEFAULT 0,\n    damage_received INTEGER DEFAULT 0,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(user_id, date)\n);\n```\n\n## 🔗 API端点\n- `GET /api/charts/heatmap` - 获取热力图数据\n- `GET /api/charts/trends` - 获取趋势图数据\n- `GET /api/charts/progress` - 获取进度图数据\n- `GET /api/charts/export` - 导出统计数据\n\n## ⏱️ 预计时间\n4天\n\n## 🏷️ 标签\nbackend, charts, visualization, reporting",
+    "labels": [
+      "backend",
+      "charts",
+      "visualization",
+      "reporting"
+    ]
+  },
+  {
+    "title": "🛒 商店系统 - 物品交易",
+    "body": "## 📋 任务描述\n实现完整的游戏内商店系统\n\n## ✅ 检查清单\n- [ ] 设计消耗品表结构（consumables）\n- [ ] 实现物品购买系统\n- [ ] 实现货币扣除逻辑\n- [ ] 实现物品使用效果\n- [ ] 实现商店库存管理\n- [ ] 实现限时商品系统\n- [ ] 实现购买历史记录\n- [ ] 实现商品推荐算法\n\n## 📊 数据模型\n```sql\nCREATE TABLE consumables (\n    id SERIAL PRIMARY KEY,\n    key VARCHAR(50) UNIQUE NOT NULL,\n    name VARCHAR(100) NOT NULL,\n    type VARCHAR(20) NOT NULL,\n    effect_type VARCHAR(20),\n    effect_value INTEGER,\n    gold_cost INTEGER DEFAULT 0,\n    gem_cost INTEGER DEFAULT 0,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE user_items (\n    id SERIAL PRIMARY KEY,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    consumable_id INTEGER REFERENCES consumables(id) ON DELETE CASCADE,\n    quantity INTEGER DEFAULT 0,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(user_id, consumable_id)\n);\n```\n\n## 🔗 API端点\n- `GET /api/shop/items` - 获取商店物品\n- `POST /api/shop/purchase` - 购买物品\n- `POST /api/items/:id/use` - 使用物品\n- `GET /api/items` - 获取用户物品\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, shop, marketplace, economy",
+    "labels": [
+      "backend",
+      "shop",
+      "marketplace",
+      "economy"
+    ]
+  },
+  {
+    "title": "🏅 挑战系统 - 社交挑战",
+    "body": "## 📋 任务描述\n实现用户间挑战和竞赛系统\n\n## ✅ 检查清单\n- [ ] 设计挑战表结构（challenges）\n- [ ] 实现挑战创建和管理\n- [ ] 实现挑战参与机制\n- [ ] 实现挑战进度跟踪\n- [ ] 实现挑战奖励分配\n- [ ] 实现公开和私密挑战\n- [ ] 实现挑战排行榜\n- [ ] 实现挑战历史记录\n\n## 📊 数据模型\n```sql\nCREATE TABLE challenges (\n    id SERIAL PRIMARY KEY,\n    creator_id INTEGER REFERENCES users(id),\n    group_id INTEGER REFERENCES parties(id),\n    name VARCHAR(100) NOT NULL,\n    description TEXT,\n    type VARCHAR(20) DEFAULT 'habit',\n    prize_gold INTEGER DEFAULT 0,\n    prize_gems INTEGER DEFAULT 0,\n    start_date DATE,\n    end_date DATE,\n    is_active BOOLEAN DEFAULT true,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE challenge_participants (\n    id SERIAL PRIMARY KEY,\n    challenge_id INTEGER REFERENCES challenges(id) ON DELETE CASCADE,\n    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,\n    progress INTEGER DEFAULT 0,\n    score INTEGER DEFAULT 0,\n    is_winner BOOLEAN DEFAULT false,\n    joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    UNIQUE(challenge_id, user_id)\n);\n```\n\n## 🔗 API端点\n- `GET /api/challenges` - 获取挑战\n- `POST /api/challenges` - 创建挑战\n- `POST /api/challenges/:id/join` - 加入挑战\n\n## ⏱️ 预计时间\n3天\n\n## 🏷️ 标签\nbackend, challenges, competitions, social",
+    "labels": [
+      "backend",
+      "challenges",
+      "competitions",
+      "social"
+    ]
+  },
+  {
+    "title": "🎨 前端界面 - Habitica风格UI",
+    "body": "## 📋 任务描述\n实现Habitica风格的用户界面\n\n## ✅ 检查清单\n- [ ] 设计像素风格的UI组件\n- [ ] 实现角色状态面板（HP, MP, EXP）\n- [ ] 实现任务列表界面（习惯、每日、待办）\n- [ ] 实现装备和物品界面\n- [ ] 实现宠物和坐骑展示界面\n- [ ] 实现社交界面（队伍、好友）\n- [ ] 实现商店界面\n- [ ] 实现成就和统计界面\n\n## 🎨 设计规范\n- 采用像素艺术风格\n- 使用Habitica配色方案\n- 实现响应式设计\n- 支持深色/浅色主题\n- 添加游戏化动画效果\n\n## 📱 组件设计\n- 角色卡片：显示等级、职业、装备\n- 任务卡片：可交互的习惯按钮\n- 物品网格：装备和宠物展示\n- 社交面板：队伍成员状态\n\n## ⏱️ 预计时间\n5天\n\n## 🏷️ 标签\nfrontend, ui, gamification, pixel-art",
+    "labels": [
+      "frontend",
+      "ui",
+      "gamification",
+      "pixel-art"
+    ]
+  },
+  {
+    "title": "🔄 实时同步系统",
+    "body": "## 📋 任务描述\n实现跨设备实时数据同步\n\n## ✅ 检查清单\n- [ ] 设计WebSocket实时通信\n- [ ] 实现数据冲突解决机制\n- [ ] 实现离线数据缓存\n- [ ] 实现增量数据同步\n- [ ] 实现同步状态指示器\n- [ ] 实现网络状态检测\n- [ ] 实现数据备份机制\n- [ ] 实现同步错误处理\n\n## 🔧 技术实现\n- WebSocket实时通信\n- 本地存储缓存\n- 增量同步算法\n- 冲突检测和解决\n- 断线重连机制\n\n## 📊 数据同步\n- 任务状态实时更新\n- 用户属性变化同步\n- 社交互动实时通知\n- 成就解锁即时推送\n\n## ⏱️ 预计时间\n4天\n\n## 🏷️ 标签\nbackend, frontend, sync, real-time",
+    "labels": [
+      "backend",
+      "frontend",
+      "sync",
+      "real-time"
+    ]
+  }
+]
