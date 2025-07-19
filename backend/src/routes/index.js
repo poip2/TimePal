@@ -8,6 +8,7 @@ const habitRoutes = require('./habits');
 const checkinRoutes = require('./checkins');
 const gameRoutes = require('./games');
 const achievementRoutes = require('./achievements');
+const dailyRoutes = require('./dailies');
 
 // 路由注册
 router.use('/auth', authRoutes);
@@ -16,5 +17,6 @@ router.use('/habits', habitRoutes);
 router.use('/checkins', checkinRoutes);
 router.use('/games', gameRoutes);
 router.use('/achievements', achievementRoutes);
+router.use('/dailies', dailyRoutes);
 
 module.exports = router;
