@@ -11,6 +11,7 @@ const achievementRoutes = require('./achievements');
 const dailyRoutes = require('./dailies');
 const todoRoutes = require('./todos');
 const equipmentRoutes = require('./equipment');
+const petRoutes = require('./pets');
 
 // 路由注册
 router.use('/auth', authRoutes);
@@ -22,5 +23,6 @@ router.use('/achievements', achievementRoutes);
 router.use('/dailies', dailyRoutes);
 router.use('/todos', todoRoutes);
 router.use('/equipment', equipmentRoutes);
+router.use('/pets', petRoutes);
 
 module.exports = router;

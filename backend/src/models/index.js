@@ -5,6 +5,9 @@ const Daily = require('./Daily');
 const Equipment = require('./Equipment');
 const UserEquipment = require('./UserEquipment');
 const Todo = require('./Todo');
+const Pet = require('./Pet');
+const UserPet = require('./UserPet');
+const PetMaterial = require('./PetMaterial');
 
 // 定义模型关联关系
 User.hasMany(Habit, {
@@ -78,6 +81,43 @@ UserEquipment.belongsTo(Equipment, {
   as: 'equipment'
 });
 
+// 宠物系统关联关系
+User.hasMany(UserPet, {
+  foreignKey: 'userId',
+  as: 'userPets',
+  onDelete: 'CASCADE'
+});
+
+UserPet.belongsTo(User, {
+  foreignKey: 'userId',
+  as: 'user',
+  onDelete: 'CASCADE'
+});
+
+Pet.hasMany(UserPet, {
+  foreignKey: 'petId',
+  as: 'userPets',
+  onDelete: 'CASCADE'
+});
+
+UserPet.belongsTo(Pet, {
+  foreignKey: 'petId',
+  as: 'pet',
+  onDelete: 'CASCADE'
+});
+
+User.hasMany(PetMaterial, {
+  foreignKey: 'userId',
+  as: 'petMaterials',
+  onDelete: 'CASCADE'
+});
+
+PetMaterial.belongsTo(User, {
+  foreignKey: 'userId',
+  as: 'user',
+  onDelete: 'CASCADE'
+});
+
 // 同步所有模型
 const syncDatabase = async () => {
   try {
@@ -99,5 +139,8 @@ module.exports = {
   Equipment,
   UserEquipment,
   Todo,
+  Pet,
+  UserPet,
+  PetMaterial,
   syncDatabase
 };

@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const equipmentController = require('../controllers/equipmentController');
-const auth = require('../middleware/auth');
+const { authenticateToken } = require('../middleware/auth');
 
 // 公开路由 - 获取装备信息
 router.get('/', equipmentController.getAllEquipment);
 
 // 需要认证的路由
-router.use(auth);
+router.use(authenticateToken);
 
 // 获取用户已拥有的装备
 router.get('/owned', equipmentController.getOwnedEquipment);
