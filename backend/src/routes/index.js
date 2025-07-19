@@ -10,6 +10,7 @@ const gameRoutes = require('./games');
 const achievementRoutes = require('./achievements');
 const dailyRoutes = require('./dailies');
 const todoRoutes = require('./todos');
+const equipmentRoutes = require('./equipment');
 
 // 路由注册
 router.use('/auth', authRoutes);
@@ -20,5 +21,6 @@ router.use('/games', gameRoutes);
 router.use('/achievements', achievementRoutes);
 router.use('/dailies', dailyRoutes);
 router.use('/todos', todoRoutes);
+router.use('/equipment', equipmentRoutes);
 
 module.exports = router;

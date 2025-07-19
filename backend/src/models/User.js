@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 const bcrypt = require('bcryptjs');
+const UserEquipment = require('./UserEquipment');
 
 const User = sequelize.define('User', {
   id: {
@@ -208,7 +209,23 @@ User.findByEmailOrUsername = async function (email, username) {
   });
 };
 
-// 实例方法：获取用户游戏化状态摘要
+// 实例方法：获取装备属性加成
+User.prototype.getEquipmentBonuses = async function () {
+  return await UserEquipment.getTotalBonuses(this.id);
+};
+
+// 实例方法：获取总属性值（基础值 + 装备加成）
+User.prototype.getTotalAttributes = async function () {
+  const equipmentBonuses = await this.getEquipmentBonuses();
+  return {
+    strength: this.strength + equipmentBonuses.strength,
+    intelligence: this.intelligence + equipmentBonuses.intelligence,
+    constitution: this.constitution + equipmentBonuses.constitution,
+    perception: this.perception + equipmentBonuses.perception
+  };
+};
+
+// 实例方法：获取用户游戏化状态摘要（包含装备加成）
 User.prototype.getGameStats = function () {
   return {
     level: this.level,
@@ -227,6 +244,38 @@ User.prototype.getGameStats = function () {
       constitution: this.constitution,
       perception: this.perception
     },
+    stats: {
+      totalTasksCompleted: this.totalTasksCompleted,
+      streakHighest: this.streakHighest,
+      loginStreak: this.loginStreak
+    }
+  };
+};
+
+// 实例方法：获取完整游戏状态（包含装备加成）
+User.prototype.getFullGameStats = async function () {
+  const equipmentBonuses = await this.getEquipmentBonuses();
+  const totalAttributes = await this.getTotalAttributes();
+
+  return {
+    level: this.level,
+    experience: this.experience,
+    experienceToNext: this.experienceToNext,
+    health: this.health,
+    maxHealth: this.maxHealth,
+    mana: this.mana,
+    maxMana: this.maxMana,
+    gold: this.gold,
+    class: this.class,
+    classPoints: this.classPoints,
+    baseAttributes: {
+      strength: this.strength,
+      intelligence: this.intelligence,
+      constitution: this.constitution,
+      perception: this.perception
+    },
+    equipmentBonuses,
+    totalAttributes,
     stats: {
       totalTasksCompleted: this.totalTasksCompleted,
       streakHighest: this.streakHighest,
