@@ -8,6 +8,11 @@ const Todo = require('./Todo');
 const Pet = require('./Pet');
 const UserPet = require('./UserPet');
 const PetMaterial = require('./PetMaterial');
+const Party = require('./Party');
+const PartyMember = require('./PartyMember');
+const PartyInvitation = require('./PartyInvitation');
+const PartyMessage = require('./PartyMessage');
+const PartyActivity = require('./PartyActivity');
 
 // 定义模型关联关系
 User.hasMany(Habit, {
@@ -118,6 +123,137 @@ PetMaterial.belongsTo(User, {
   onDelete: 'CASCADE'
 });
 
+// 队伍系统关联关系
+User.hasMany(Party, {
+  foreignKey: 'leaderId',
+  as: 'createdParties',
+  onDelete: 'CASCADE'
+});
+
+Party.belongsTo(User, {
+  foreignKey: 'leaderId',
+  as: 'leader'
+});
+
+User.belongsToMany(Party, {
+  through: PartyMember,
+  foreignKey: 'userId',
+  otherKey: 'partyId',
+  as: 'parties'
+});
+
+Party.belongsToMany(User, {
+  through: PartyMember,
+  foreignKey: 'partyId',
+  otherKey: 'userId',
+  as: 'members'
+});
+
+User.hasMany(PartyMember, {
+  foreignKey: 'userId',
+  as: 'partyMemberships',
+  onDelete: 'CASCADE'
+});
+
+PartyMember.belongsTo(User, {
+  foreignKey: 'userId',
+  as: 'user',
+  onDelete: 'CASCADE'
+});
+
+Party.hasMany(PartyMember, {
+  foreignKey: 'partyId',
+  as: 'partyMembers',
+  onDelete: 'CASCADE'
+});
+
+PartyMember.belongsTo(Party, {
+  foreignKey: 'partyId',
+  as: 'party',
+  onDelete: 'CASCADE'
+});
+
+User.hasMany(PartyInvitation, {
+  foreignKey: 'inviterId',
+  as: 'sentInvitations',
+  onDelete: 'CASCADE'
+});
+
+User.hasMany(PartyInvitation, {
+  foreignKey: 'inviteeId',
+  as: 'receivedInvitations',
+  onDelete: 'CASCADE'
+});
+
+PartyInvitation.belongsTo(User, {
+  foreignKey: 'inviterId',
+  as: 'inviter'
+});
+
+PartyInvitation.belongsTo(User, {
+  foreignKey: 'inviteeId',
+  as: 'invitee'
+});
+
+Party.hasMany(PartyInvitation, {
+  foreignKey: 'partyId',
+  as: 'invitations',
+  onDelete: 'CASCADE'
+});
+
+PartyInvitation.belongsTo(Party, {
+  foreignKey: 'partyId',
+  as: 'party'
+});
+
+User.hasMany(PartyMessage, {
+  foreignKey: 'userId',
+  as: 'partyMessages',
+  onDelete: 'CASCADE'
+});
+
+PartyMessage.belongsTo(User, {
+  foreignKey: 'userId',
+  as: 'user',
+  onDelete: 'CASCADE'
+});
+
+Party.hasMany(PartyMessage, {
+  foreignKey: 'partyId',
+  as: 'messages',
+  onDelete: 'CASCADE'
+});
+
+PartyMessage.belongsTo(Party, {
+  foreignKey: 'partyId',
+  as: 'party',
+  onDelete: 'CASCADE'
+});
+
+User.hasMany(PartyActivity, {
+  foreignKey: 'userId',
+  as: 'partyActivities',
+  onDelete: 'CASCADE'
+});
+
+PartyActivity.belongsTo(User, {
+  foreignKey: 'userId',
+  as: 'user',
+  onDelete: 'CASCADE'
+});
+
+Party.hasMany(PartyActivity, {
+  foreignKey: 'partyId',
+  as: 'activities',
+  onDelete: 'CASCADE'
+});
+
+PartyActivity.belongsTo(Party, {
+  foreignKey: 'partyId',
+  as: 'party',
+  onDelete: 'CASCADE'
+});
+
 // 同步所有模型
 const syncDatabase = async () => {
   try {
@@ -142,5 +278,10 @@ module.exports = {
   Pet,
   UserPet,
   PetMaterial,
+  Party,
+  PartyMember,
+  PartyInvitation,
+  PartyMessage,
+  PartyActivity,
   syncDatabase
 };

@@ -12,6 +12,7 @@ const dailyRoutes = require('./dailies');
 const todoRoutes = require('./todos');
 const equipmentRoutes = require('./equipment');
 const petRoutes = require('./pets');
+const partyRoutes = require('./parties');
 
 // 路由注册
 router.use('/auth', authRoutes);
@@ -24,5 +25,6 @@ router.use('/dailies', dailyRoutes);
 router.use('/todos', todoRoutes);
 router.use('/equipment', equipmentRoutes);
 router.use('/pets', petRoutes);
+router.use('/parties', partyRoutes);
 
 module.exports = router;

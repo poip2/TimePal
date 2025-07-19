@@ -17,7 +17,7 @@ const authenticateToken = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key');
 
     // 验证用户是否存在
-    const user = await User.findByPk(decoded.userId);
+    const user = await User.findByPk(decoded.userId || decoded.id);
     if (!user) {
       return res.status(401).json({
         success: false,
@@ -69,7 +69,7 @@ const optionalAuth = async (req, res, next) => {
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key');
-    const user = await User.findByPk(decoded.userId);
+    const user = await User.findByPk(decoded.userId || decoded.id);
 
     if (user && user.isActive) {
       req.user = decoded;
