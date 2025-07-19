@@ -9,6 +9,7 @@ const checkinRoutes = require('./checkins');
 const gameRoutes = require('./games');
 const achievementRoutes = require('./achievements');
 const dailyRoutes = require('./dailies');
+const todoRoutes = require('./todos');
 
 // 路由注册
 router.use('/auth', authRoutes);
@@ -18,5 +19,6 @@ router.use('/checkins', checkinRoutes);
 router.use('/games', gameRoutes);
 router.use('/achievements', achievementRoutes);
 router.use('/dailies', dailyRoutes);
+router.use('/todos', todoRoutes);
 
 module.exports = router;
