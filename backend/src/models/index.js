@@ -13,6 +13,8 @@ const PartyMember = require('./PartyMember');
 const PartyInvitation = require('./PartyInvitation');
 const PartyMessage = require('./PartyMessage');
 const PartyActivity = require('./PartyActivity');
+const Friend = require('./Friend');
+const Message = require('./Message');
 
 // 定义模型关联关系
 User.hasMany(Habit, {
@@ -267,6 +269,52 @@ const syncDatabase = async () => {
   }
 };
 
+// 好友系统关联关系
+User.hasMany(Friend, {
+  foreignKey: 'requesterId',
+  as: 'sentFriendRequests',
+  onDelete: 'CASCADE'
+});
+
+User.hasMany(Friend, {
+  foreignKey: 'addresseeId',
+  as: 'receivedFriendRequests',
+  onDelete: 'CASCADE'
+});
+
+Friend.belongsTo(User, {
+  foreignKey: 'requesterId',
+  as: 'requester'
+});
+
+Friend.belongsTo(User, {
+  foreignKey: 'addresseeId',
+  as: 'addressee'
+});
+
+// 消息系统关联关系
+User.hasMany(Message, {
+  foreignKey: 'senderId',
+  as: 'sentMessages',
+  onDelete: 'CASCADE'
+});
+
+User.hasMany(Message, {
+  foreignKey: 'receiverId',
+  as: 'receivedMessages',
+  onDelete: 'CASCADE'
+});
+
+Message.belongsTo(User, {
+  foreignKey: 'senderId',
+  as: 'sender'
+});
+
+Message.belongsTo(User, {
+  foreignKey: 'receiverId',
+  as: 'receiver'
+});
+
 module.exports = {
   sequelize,
   User,
@@ -283,5 +331,7 @@ module.exports = {
   PartyInvitation,
   PartyMessage,
   PartyActivity,
+  Friend,
+  Message,
   syncDatabase
 };

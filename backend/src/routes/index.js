@@ -13,6 +13,8 @@ const todoRoutes = require('./todos');
 const equipmentRoutes = require('./equipment');
 const petRoutes = require('./pets');
 const partyRoutes = require('./parties');
+const friendRoutes = require('./friends');
+const messageRoutes = require('./messages');
 
 // 路由注册
 router.use('/auth', authRoutes);
@@ -26,5 +28,7 @@ router.use('/todos', todoRoutes);
 router.use('/equipment', equipmentRoutes);
 router.use('/pets', petRoutes);
 router.use('/parties', partyRoutes);
+router.use('/friends', friendRoutes);
+router.use('/messages', messageRoutes);
 
 module.exports = router;
